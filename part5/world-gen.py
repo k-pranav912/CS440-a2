@@ -114,13 +114,14 @@ def gen_ground_truth(world):
     return start, positions, actions, readings
 
 def generate():
-    for i in range(1, 6):
+    for i in range(1, 11):
         world_name = "world" + str(i) + ".txt"
-        world_data_name = "world" + str(i) + "_data.txt"
         world = world_gen((100,50))
-        start, positions, actions, readings = gen_ground_truth(world)
         write_world(world_name, world)
-        write_world_data(world_data_name, start, positions, actions, readings)
+        for j in range(1, 11):
+            world_data_name = "world" + str(i) + "_data" + str(j) + ".txt"
+            start, positions, actions, readings = gen_ground_truth(world)
+            write_world_data(world_data_name, start, positions, actions, readings)
 
 def main():
     generate()
