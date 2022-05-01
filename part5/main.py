@@ -42,7 +42,7 @@ def errorCalc():
             for m in range(len(temp)):
                 errors.append(temp[m])
 
-    for l in range(6, NUM_ITERATIONS+1):
+    for l in range(6, NUM_ITERATIONS):
         x.append(l)
         sum = 0
         for k in range(NUM_WORLDS*NUM_DATA):
@@ -110,7 +110,7 @@ def parseFiles(fileName, displayUI=False, calculateError=False, calculateProbabi
 
         if calculateError and iteration > 4:
             maxVal, coords = getMaxValue(mat)
-            values.append(calcDistance(coords, positions[NUM_ITERATIONS]))
+            values.append(calcDistance(coords, positions[iteration+1]))
 
         if calculateProbability:
             i = int(positions[iteration+1][0])
